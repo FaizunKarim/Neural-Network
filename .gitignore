@@ -1,0 +1,22 @@
+# Folder cache Python
+__pycache__/
+*.pyc
+
+# Folder lingkungan virtual
+venv/
+.venv/
+env/
+
+# model yang sudah dilatih
+*.pkl
+
+# File spesifik sistem operasi
+.DS_Store
+Thumbs.db
+
+# Folder spesifik editor/IDE
+.vscode/
+.idea/
+
+# Checkpoint Jupyter Notebook
+.ipynb_checkpoints/
