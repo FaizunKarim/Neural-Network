@@ -7,9 +7,6 @@ venv/
 .venv/
 env/
 
-# model yang sudah dilatih
-*.pkl
-
 # File spesifik sistem operasi
 .DS_Store
 Thumbs.db
