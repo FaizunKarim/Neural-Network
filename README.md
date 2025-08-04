@@ -1,13 +1,13 @@
 # Neural Network Web Application
 
-Aplikasi web ini adalah implementasi sederhana dari Jaringan Saraf Berulang (RNN) untuk klasifikasi gambar, yang kemungkinan besar dirancang untuk pengenalan digit tulisan tangan (seperti dataset MNIST). Aplikasi ini menyediakan antarmuka web di mana pengguna dapat mengunggah gambar, dan model RNN akan memprediksi kelas gambar tersebut.
+Aplikasi web ini adalah implementasi sederhana dari Jaringan Saraf Berulang (RNN) untuk klasifikasi angka, yang dirancang untuk pengenalan digit tulisan tangan (seperti dataset MNIST). Aplikasi ini menyediakan antarmuka web di mana pengguna dapat menuliskan suatu angka, dan model RNN akan memprediksi kelas dari angka tersebut (0-9).
 
 ## Fitur
 
-*   **Klasifikasi Gambar**: Menggunakan Simple RNN untuk memprediksi kelas gambar yang diunggah.
+*   **Klasifikasi Angka**: Menggunakan Simple RNN untuk memprediksi kelas coretan angka yang diunggah.
 *   **Antarmuka Web Interaktif**: Antarmuka pengguna berbasis web untuk interaksi yang mudah.
 *   **Pelatihan Model**: Kemampuan untuk melatih model RNN menggunakan data yang disediakan.
-*   **Penyimpanan/Pemuatan Model**: Model dapat disimpan dan dimuat untuk penggunaan di masa mendatang.
+*   **Penyimpanan/Pemuatan Model**: Model disimpan dan dimuat untuk penggunaan di masa mendatang.
 
 ## Teknologi yang Digunakan
 
@@ -16,8 +16,30 @@ Aplikasi web ini adalah implementasi sederhana dari Jaringan Saraf Berulang (RNN
 *   **Model**: Simple Recurrent Neural Network (RNN)
 
 ## Struktur Repository
-
-...
+```
+Neural Network
+│
+├── api/
+│   └── app.py
+│   └── index.py
+├── data/
+│   └── (mending pakai tensorflow aja dah beneran)
+├── static/
+│   └── js
+│       └── main.js
+│   └── css
+│       └── style.css
+├── templates/
+│   └── index.html
+├── .gitignore
+├── mnist_loader.py
+├── network.py
+├── requirements.txt
+├── train.ipynb
+├── rnn_model.pkl
+├── vercel.json (gak jadi kepake)
+└── README.md
+```
 
 ## Cara Mengatur dan Menjalankan
 
@@ -46,11 +68,15 @@ Aplikasi web ini adalah implementasi sederhana dari Jaringan Saraf Berulang (RNN
 
 5.  **Jalankan Aplikasi Flask**:
     ```bash
+    python -m streamlit run api/app.py
+    ```
+    atau
+    ```bash
     python api/index.py
     ```
-    Aplikasi akan berjalan di `http://127.0.0.1:5000/` secara default.
+    Aplikasi akan berjalan di `http://localhost:8501` atau `http://127.0.0.1:5000/` secara default.
 
 ## Penggunaan
 
-Setelah aplikasi berjalan, buka browser web Anda dan navigasikan ke `http://127.0.0.1:5000/`. Anda akan melihat antarmuka di mana Anda dapat menggambar atau mengunggah gambar, dan aplikasi akan menampilkan prediksinya.
+Setelah aplikasi berjalan, buka browser web Anda dan navigasikan ke`http://localhost:8501` atau `http://127.0.0.1:5000/`. Anda akan melihat antarmuka di mana Anda dapat menggambar, dan aplikasi akan menampilkan prediksinya.
 
