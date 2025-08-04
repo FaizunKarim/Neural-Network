@@ -2,12 +2,13 @@ import streamlit as st
 import numpy as np
 from streamlit_drawable_canvas import st_canvas
 import cv2
-import matplotlib.pyplot as plt
-from PIL import Image
+import os
 from network import SimpleRNN
 
-# Load trained model
-net = SimpleRNN.load("rnn_model.pkl")
+# Memuat model dari root directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(script_dir, '..', 'rnn_model.pkl')
+net = SimpleRNN.load(model_path)
 
 st.set_page_config(page_title="Digit Recognizer", layout="centered")
 st.title("Digit Recognizer")
@@ -54,8 +55,7 @@ if st.button("Check digit"):
 
         # Preprocess
         processed = crop_and_center(gray)
-        input_vector = processed.reshape(784, 1)
-        output = net.feedforward(input_vector)
+        output = net.feedforward(processed)
         prediction = int(np.argmax(output))
 
         with right_col:
@@ -64,7 +64,7 @@ if st.button("Check digit"):
             display_img = (processed * 255).astype(np.uint8)
             # Resize to match the canvas size
             display_img = cv2.resize(display_img, (CANVAS_SIZE, CANVAS_SIZE), interpolation=cv2.INTER_NEAREST)
-            st.image(display_img, width=CANVAS_SIZE, channels="GRAY")
+            st.image(display_img, width=CANVAS_SIZE)
 
         st.markdown(f"### 🔍 Prediksi: **{prediction}**")
         # Use a specific height for the bar chart to keep it compact
