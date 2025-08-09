@@ -4,4 +4,3 @@ Pillow
 opencv-python
 streamlit_drawable_canvas
 streamlit
-cv2
